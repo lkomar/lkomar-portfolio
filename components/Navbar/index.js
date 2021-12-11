@@ -12,7 +12,7 @@ const Navbar = () => (
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <nav
-      className={`border-b-2 border-gray-200 w-full fixed left-0 top-0 right-0 z-20 bg-gray-900 text-gray-300 flex items-center h-${navbarHeight} box-border`}
+      className={`border-b-2 border-gray-200 w-full z-20 bg-gray-900 text-gray-300 flex items-center h-${navbarHeight}`} // fixed left-0 top-0 right-0
     >
       <Nav>
         <NavLink href="/" isActive>
