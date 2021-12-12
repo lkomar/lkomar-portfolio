@@ -38,5 +38,6 @@ export const getStaticProps = async () => {
 
   return {
     props: { about: data.abouts[0] },
+    revalidate: process.env.NODE_ENV === 'development' ? 1 : 10,
   }
 }
