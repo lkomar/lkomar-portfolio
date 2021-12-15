@@ -1,13 +1,15 @@
 import 'tailwindcss/tailwind.css'
 
-import Navbar from '../components/Navbar'
+import Navbar, { navbarHeight } from '../components/Navbar'
 import Footer from '../components/Footer'
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
       <Navbar />
-      <Component {...pageProps} />
+      <div style={{ marginTop: navbarHeight }}>
+        <Component {...pageProps} />
+      </div>
       <Footer />
     </>
   )

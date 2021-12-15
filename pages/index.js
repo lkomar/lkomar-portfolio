@@ -1,16 +1,17 @@
-// import { navbarHeight } from '../components/Navbar'
-
 import { gql } from 'graphql-request'
+import { footerHeight } from '../components/Footer'
+import { navbarHeight } from '../components/Navbar'
 import { graphCmsRequest } from '../utils/request'
+
+export const fullPageHeight = { minHeight: `calc(100vh - ${navbarHeight + footerHeight}px)` }
 
 const Home = ({ about }) => {
   console.log('data', about)
-  // mt-${navbarHeight}
 
   const fullName = `${about.firstName} ${about.lastName}`
 
   return (
-    <div className={`flex flex-col items-center justify-center py-2 h-screen`}>
+    <div className="flex flex-col items-center justify-center py-2" style={fullPageHeight}>
       <div>Who am I: {fullName}</div>
       <div>{about.title}</div>
       <div>{about.subtitle}</div>
