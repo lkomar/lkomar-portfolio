@@ -19,8 +19,6 @@ const Home = ({ about }) => {
   )
 }
 
-export default Home
-
 export const getStaticProps = async () => {
   const query = gql`
     query GetAboutsData {
@@ -42,3 +40,5 @@ export const getStaticProps = async () => {
     revalidate: process.env.NODE_ENV === 'development' ? 1 : 10,
   }
 }
+
+export default Home
