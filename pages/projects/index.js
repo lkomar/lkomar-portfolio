@@ -3,8 +3,6 @@ import { graphCmsRequest } from '../../utils/request'
 import { fullPageHeight } from '../index'
 
 const Projects = ({ projects }) => {
-  console.log('projects', projects)
-
   return (
     <div style={fullPageHeight}>
       <h1>Projects</h1>
@@ -14,7 +12,9 @@ const Projects = ({ projects }) => {
           projects.map(project => (
             <div key={project.id} className="m-2 border-2 rounded-md w-96 p-3">
               <p>{project.title}</p>
+              <p>{project.about}</p>
               <p>{project.projectName}</p>
+              <p>{project.description}</p>
               <p>{project.startDate}</p>
             </div>
           ))

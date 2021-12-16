@@ -12,7 +12,7 @@ const Navbar = () => (
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <nav
-      className={`fixed left-0 top-0 right-0 border-b-2 border-gray-200 w-full z-20 bg-gray-900 text-gray-300 flex items-center`}
+      className={`fixed left-0 top-0 right-0 border-b-2 border-gray-200 w-full z-20 bg-gray-300 dark:bg-gray-900 text-gray-300 flex items-center`}
       style={{ height: `${navbarHeight}px` }}
     >
       <Nav>
