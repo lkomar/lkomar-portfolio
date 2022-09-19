@@ -1,6 +1,7 @@
 import { gql } from 'graphql-request'
 import { graphCmsRequest } from '../../utils/request'
 import { fullPageHeight } from '../index'
+import { isDevelopment } from '../../utils/environment'
 
 const Projects = ({ projects }) => {
   return (
@@ -29,7 +30,7 @@ const Projects = ({ projects }) => {
 export const getStaticProps = async () => {
   const query = gql`
     query GetProjectsData {
-      projects(stage: ${process.env.NODE_ENV === 'development' ? 'DRAFT' : 'PUBLISHED'}) {
+      projects(stage: ${isDevelopment ? 'DRAFT' : 'PUBLISHED'}) {
         id
         title
         about
