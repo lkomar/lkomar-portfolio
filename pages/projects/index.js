@@ -1,7 +1,20 @@
-import { gql } from 'graphql-request'
+import Link from 'next/link'
+
 import { graphCmsRequest } from '../../utils/request'
 import { fullPageHeight } from '../index'
 import { isDevelopment } from '../../utils/environment'
+import { getProjects } from '../../queries/projects'
+
+export const getStaticProps = async () => {
+  const data = await graphCmsRequest().request(getProjects)
+
+  if (!data) return { notFound: true }
+
+  return {
+    props: { projects: data.projects },
+    revalidate: isDevelopment ? 1 : 30,
+  }
+}
 
 const Projects = ({ projects }) => {
   return (
@@ -25,30 +38,6 @@ const Projects = ({ projects }) => {
       </div>
     </div>
   )
-}
-
-export const getStaticProps = async () => {
-  const query = gql`
-    query GetProjectsData {
-      projects(stage: ${isDevelopment ? 'DRAFT' : 'PUBLISHED'}) {
-        id
-        title
-        about
-        projectName
-        startDate
-        endDate
-      }
-    }
-  `
-
-  const data = await graphCmsRequest().request(query)
-
-  if (!data) return { notFound: true }
-
-  return {
-    props: { projects: data.projects },
-    revalidate: process.env.NODE_ENV === 'development' ? 1 : 30,
-  }
 }
 
 export default Projects
