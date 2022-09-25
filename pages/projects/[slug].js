@@ -8,7 +8,7 @@ export const getStaticPaths = async () => {
 
   const paths = data.projects.map(project => ({
     params: {
-      projectName: project.projectName,
+      slug: project.projectName,
     },
   }))
 
@@ -19,7 +19,7 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async context => {
-  const projectName = context.params.projectName
+  const projectName = context.params.slug
   const data = await graphCmsRequest().request(getProjectByProjectName(projectName))
 
   if (!data) return { notFound: true }

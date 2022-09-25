@@ -24,13 +24,15 @@ const Projects = ({ projects }) => {
       <div className="flex flex-col items-center p-2">
         {projects.length ? (
           projects.map(project => (
-            <div key={project.id} className="m-2 border-2 rounded-md w-96 p-3">
-              <p>{project.title}</p>
-              <p>{project.about}</p>
-              <p>{project.projectName}</p>
-              <p>{project.description}</p>
-              <p>{project.startDate}</p>
-            </div>
+            <Link href={`/projects/${project.projectName}`} key={project.id}>
+              <a className="m-2 border-2 rounded-md w-96 p-3 hover:border-cyan-400">
+                <p>{project.title}</p>
+                <p>{project.projectName}</p>
+                <p>{project.about}</p>
+                <p>{project.description}</p>
+                <p>{project.startDate}</p>
+              </a>
+            </Link>
           ))
         ) : (
           <div>No projects to display</div>
