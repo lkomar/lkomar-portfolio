@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 const NavLink = ({ href, children }) => {
   const router = useRouter()
 
+  // TODO rewrite to be active at sub-routes eg. /projects/name
   const isActive = href === router.asPath
 
   const handleClick = event => {
