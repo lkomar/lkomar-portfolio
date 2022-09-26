@@ -3,7 +3,7 @@ import 'tailwindcss/tailwind.css'
 import Navbar, { navbarHeight } from '../components/Navbar'
 import Footer from '../components/Footer'
 
-function MyApp({ Component, pageProps }) {
+function App({ Component, pageProps }) {
   return (
     <>
       <Navbar />
@@ -15,4 +15,4 @@ function MyApp({ Component, pageProps }) {
   )
 }
 
-export default MyApp
+export default App
