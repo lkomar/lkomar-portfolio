@@ -6,8 +6,6 @@ import { graphCmsRequest } from '../utils/request'
 export const fullPageHeight = { minHeight: `calc(100vh - ${navbarHeight + footerHeight}px)` }
 
 const Home = ({ about }) => {
-  console.log('data', about)
-
   const fullName = `${about.firstName} ${about.lastName}`
 
   return (

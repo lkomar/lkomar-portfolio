@@ -1,10 +1,10 @@
 import { useRouter } from 'next/router'
+import { compareNestedPaths } from '../../utils/routes'
 
 const NavLink = ({ href, children }) => {
   const router = useRouter()
 
-  // TODO rewrite to be active at sub-routes eg. /projects/name
-  const isActive = href === router.asPath
+  const isActive = href === router.asPath || compareNestedPaths(href, router.asPath)
 
   const handleClick = event => {
     event.preventDefault()

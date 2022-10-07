@@ -30,7 +30,6 @@ export const getStaticProps = async context => {
 }
 
 const Project = ({ project }) => {
-  console.log('project', project)
   return (
     <div className="flex flex-col items-center p-2">
       <h1 className="font-bold text-2xl">{project.title}</h1>
